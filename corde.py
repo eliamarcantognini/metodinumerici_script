@@ -38,4 +38,7 @@ def corde(fname, fpname, x0, tolx, tolf, nmax):
     
     """
     
-    return 1
+    eps = np.spacing(1) # np.spacing(x) Restituisce la distanza tra x e il numero adiacente più vicino.
+                        # np.spacing(1)  restituisce quindi l' eps di macchina.
+    
+    

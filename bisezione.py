@@ -42,7 +42,7 @@ def bisez(fname, a, b, tol):
         print("Intervallo non corretto. Algoritmo non applicabile.")
         return [], 0, []
     else:
-        maxit = math.log((fb - fa)/tol, 10)/math.log(2, 10)
+        maxit = math.ceil(math.log((fb - fa)/tol, 10)/math.log(2, 10))
         print("Numero massimo di iterazioni: ", maxit)
         it = 0
         xk = []
@@ -50,7 +50,7 @@ def bisez(fname, a, b, tol):
             m = a + (b - a)/2 # punto medio fra a e b
             xk.append(m) # salvo in xk i vari valori di m
             fm = fname(m) # valore della funzione nell'ascissa m 
-            if sign(fm) == 0: 
+            if fm == 0: 
                 # se fm è 0, sono sull'ascissa quindi ho trovato x
                 break
             elif sign(fm) == sign(fa): 

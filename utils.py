@@ -8,16 +8,26 @@ import math
 import numpy as np
 
 def stima_ordine(xk,iterazioni):
-    """Stima numerica dell'ordine di convergenza
+    """ Stima numerica dell'ordine di convergenza
     
+    Parameters
+    ----------
+    xk : list
+        Lista delle iterate
+    iterazioni: int
+        Numero di iterazioni
+    
+    Returns
+    -------
+    int
+        Ordine di convergenza
     """
-      p=[]
+    p=[]
 
-      for k in range(iterazioni-3):
-         p.append(np.log(abs(xk[k+2]-xk[k+3])/abs(xk[k+1]-xk[k+2]))/np.log(abs(xk[k+1]-xk[k+2])/abs(xk[k]-xk[k+1])));
-     
-      ordine=p[-1:]
-      return ordine
+    for k in range(iterazioni-3):
+        p.append(np.log(abs(xk[k+2]-xk[k+3])/abs(xk[k+1]-xk[k+2]))/np.log(abs(xk[k+1]-xk[k+2])/abs(xk[k]-xk[k+1])));
+        ordine=p[-1:]
+    return ordine
   
 
 # =============================================================================
