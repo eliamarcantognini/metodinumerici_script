@@ -11,9 +11,7 @@ from utils import sign
 
 def bisez(fname, a, b, tol):
     """ Metodo di bisezione per la ricerca di zeri di funzione.
-    
-    Descrizione della funzione
-    
+
     Parameters
     ----------
     fname : lambdified function

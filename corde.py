@@ -11,9 +11,7 @@ from utils import sign
 
 def corde(fname, fpname, x0, tolx, tolf, nmax):
     """ Metodo delle corde per la ricerca di zeri di funzione.
-    
-    Descrizione della funzione
-    
+        
     Parameters
     ----------
     fname : lambdified function
@@ -40,5 +38,32 @@ def corde(fname, fpname, x0, tolx, tolf, nmax):
     
     eps = np.spacing(1) # np.spacing(x) Restituisce la distanza tra x e il numero adiacente più vicino.
                         # np.spacing(1)  restituisce quindi l' eps di macchina.
-    
-    
+    xk = []
+    fx0 = fname(x0)
+    # il valore di m nel metodo delle corde è costante ed è convenzione prendere
+    # come valore costante la valutazione in x0 della derivata prima di f
+    # che è il coefficiente angolare della tangente in x0
+    m = fpname(x0) 
+    # x1 è l'ascissa del punto di intersezione tra la retta che passa per il punto
+    # (xi, f(xi)) con ha pendenza uguale a m e l'asse x
+    x1 = x0 - fx0 / m # calcolo xi +1
+    fx1 = fname(x1) # calcolo il valore di f in xi+1
+    it = 1 # un'iterazione l'ho già fatta, calcolando xi+1
+    xk.append(x1)
+    while it < nmax and abs(fx1) >= tolf and abs(fx0 / m)>=tolx*abs(x1):
+        # FIXME: La prof non utilizza questa condizione, perché?
+        if fx1 == 0:
+            # se fx1 è 0, ho trovato la x (alpha) e termino
+            break
+        else:
+            # procedo con l'iterazione successiva, dando come valore precedente x1
+            # e calcolando il successivo xi+1
+            fx0 = fx1 
+            x1 = x0 - fx0 / m
+            fx1 = fname(fx1)
+            xk.append(x1)
+        it += 1
+    if (it >= nmax):
+        print("Raggiunto numero massimo di iterazioni possibili.")
+    return x1, it, xk
+            

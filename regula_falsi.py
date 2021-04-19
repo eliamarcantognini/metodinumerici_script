@@ -11,8 +11,6 @@ from utils import sign
 def regula_falsi(fname, a, b, tol, nmax):
     """ Metodo di falsa posizione per la ricerca di zeri di funzione.
     
-    Descrizione della funzione
-    
     Parameters
     ----------
     fname : lambdified function
