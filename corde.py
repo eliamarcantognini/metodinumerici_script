@@ -56,7 +56,7 @@ def corde(fname, fpname, x0, tolx, tolf, nmax):
         fx1 = fname(fx1)
         xk.append(x1)
         it += 1
-    if (it >= nmax):
+    if it >= nmax:
         print("Raggiunto numero massimo di iterazioni possibili.")
     return x1, it, xk
             
