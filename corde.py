@@ -36,8 +36,6 @@ def corde(fname, fpname, x0, tolx, tolf, nmax):
     
     """
     
-    eps = np.spacing(1) # np.spacing(x) Restituisce la distanza tra x e il numero adiacente più vicino.
-                        # np.spacing(1)  restituisce quindi l' eps di macchina.
     xk = []
     fx0 = fname(x0)
     # il valore di m nel metodo delle corde è costante ed è convenzione prendere
@@ -51,17 +49,12 @@ def corde(fname, fpname, x0, tolx, tolf, nmax):
     it = 1 # un'iterazione l'ho già fatta, calcolando xi+1
     xk.append(x1)
     while it < nmax and abs(fx1) >= tolf and abs(fx0 / m)>=tolx*abs(x1):
-        # FIXME: La prof non utilizza questa condizione, perché?
-        if fx1 == 0:
-            # se fx1 è 0, ho trovato la x (alpha) e termino
-            break
-        else:
-            # procedo con l'iterazione successiva, dando come valore precedente x1
-            # e calcolando il successivo xi+1
-            fx0 = fx1 
-            x1 = x0 - fx0 / m
-            fx1 = fname(fx1)
-            xk.append(x1)
+        # procedo con l'iterazione successiva, dando come valore precedente x1
+        # e calcolando il successivo xi+1
+        fx0 = fx1 
+        x1 = x0 - fx0 / m
+        fx1 = fname(fx1)
+        xk.append(x1)
         it += 1
     if (it >= nmax):
         print("Raggiunto numero massimo di iterazioni possibili.")
