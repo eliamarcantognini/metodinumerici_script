@@ -49,10 +49,10 @@ def newton(fname, fpname, x0, tolx, tolf, nmax):
         x1 = x0 - fx0 / m # calcolo xi +1
         fx1 = fname(x1) # calcolo il valore di f in xi+1
         xk.append(x1)
-        it = 1 # un'iterazione l'ho già fatta, calcolando xi+1
+        it = 1 
     else:
         print("Derivata nulla in x0.")
-        return [], 0, xk
+        return [], 0, []
         
     while it < nmax and abs(fx1) >= tolf and abs(fx0 / m)>=tolx*abs(x1):
         # procedo con l'iterazione successiva, dando come valore precedente x1,
@@ -124,7 +124,7 @@ def newton_m(fname, fpname, x0, m, tolx, tolf, nmax):
     else:
         print("Derivata nulla in x0.")
         return [], 0, xk
-        
+
     while it < nmax and abs(fx1) >= tolf and abs(fx0 / m)>=tolx*abs(x1):
         # procedo con l'iterazione successiva, dando come valore precedente x1,
         # come valore precedente al precedente(xm1) x0 e calcolando il successivo xi+1
@@ -135,7 +135,7 @@ def newton_m(fname, fpname, x0, m, tolx, tolf, nmax):
         if abs(dfx0) > np.spacing(1): 
             fx0 = fx1 
             x1 = x0 - m * fx0 / dfx0
-            fx1 = fname(fx1)
+            fx1 = fname(x1)
             xk.append(x1)
             it += 1
         else:
