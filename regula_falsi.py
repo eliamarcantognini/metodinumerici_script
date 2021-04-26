@@ -66,7 +66,7 @@ def regula_falsi(fname, a, b, tol, nmax):
                 fb = fx1
             it += 1 # proseguo con l'iterazione successiva
         
-        if it == nmax:
+        if it >= nmax:
             # se ho raggiunto il numero massimo di iterazioni possibili
             # stampo l'informazione così che l'utente sappia che non
             # è stata raggiunta la convergenza entro nmax iterazioni
