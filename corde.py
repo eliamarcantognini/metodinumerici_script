@@ -51,9 +51,10 @@ def corde(fname, fpname, x0, tolx, tolf, nmax):
     while it < nmax and abs(fx1) >= tolf and abs(fx0 / m)>=tolx*abs(x1):
         # procedo con l'iterazione successiva, dando come valore precedente x1
         # e calcolando il successivo xi+1
+        x0 = x1
         fx0 = fx1 
         x1 = x0 - fx0 / m
-        fx1 = fname(fx1)
+        fx1 = fname(x1)
         xk.append(x1)
         it += 1
     if it >= nmax:

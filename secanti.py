@@ -67,7 +67,7 @@ def secanti(fname, xm1, x0, tolx, tolf, nmax):
         m = (fx0 - fxm1) / (x0 - xm1)    
         fx0 = fx1 
         x1 = x0 - fx0 / m
-        fx1 = fname(fx1)
+        fx1 = fname(x1)
         xk.append(x1)
         it += 1
     if it >= nmax:

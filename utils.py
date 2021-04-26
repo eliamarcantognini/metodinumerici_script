@@ -26,7 +26,7 @@ def stima_ordine(xk,iterazioni):
 
     for k in range(iterazioni-3):
         p.append(np.log(abs(xk[k+2]-xk[k+3])/abs(xk[k+1]-xk[k+2]))/np.log(abs(xk[k+1]-xk[k+2])/abs(xk[k]-xk[k+1])));
-        ordine=p[-1:]
+    ordine=p[-1]
     return ordine
   
 

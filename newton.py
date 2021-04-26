@@ -64,7 +64,7 @@ def newton(fname, fpname, x0, tolx, tolf, nmax):
         if abs(m) > np.spacing(1): 
             fx0 = fx1 
             x1 = x0 - fx0 / m
-            fx1 = fname(fx1)
+            fx1 = fname(x1)
             xk.append(x1)
             it += 1
         else:

@@ -40,7 +40,7 @@ def bisez(fname, a, b, tol):
         print("Intervallo non corretto. Algoritmo non applicabile.")
         return [], 0, []
     else:
-        maxit = math.ceil(math.log((fb - fa)/tol, 10)/math.log(2, 10))
+        maxit = math.ceil(math.log((b - a)/tol)/math.log(2))
         print("Numero massimo di iterazioni: ", maxit)
         it = 0
         xk = []
