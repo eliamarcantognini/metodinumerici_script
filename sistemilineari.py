@@ -159,7 +159,7 @@ def LU_nopivot(A):
     """
     flag = 0
     # test dimensione
-    m, n = A.shape[0]
+    m, n = A.shape
     if n != m:
         print("LU_nopivot: matrice non quadrata")
         flag = 1
