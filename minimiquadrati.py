@@ -30,9 +30,13 @@ def metodoQR(x, y, n):
         a : Vettore colonna contenente i coefficienti incogniti
     
     """
-    
+    # con la funzione vander creo la matrice di vandermode
+    # in cui in ogni colonna ho la potenza i-esima
     H = np.vander(x, n+1)
+    # ottengo i fattori Q ed R
     Q, R = spl.qr(H)
+    # y1 sarebbe btilde1
     y1 = np.dot(Q.T, y)
+    # 
     a, flag = Usolve(R[0:n+1, :], y1[0:n+1])
     return a
