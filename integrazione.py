@@ -106,3 +106,46 @@ def simptoll(fun, a, b, tol):
         N = 0
         IN = []
     return IN, N
+
+# def trapcomp(fn, a, b, n):
+    
+#     h = (b-a)/n
+#     xnodi = np.arange(a, b+h, h)
+#     f = fn(xnodi)
+#     I = h/2 * (f[0]+2*np.sum(f[1:n])+f[n])
+#     return I 
+
+# def traptoll(fn, a, b, tol):
+#     nmax = 2048
+#     err = 1
+#     N = 1
+#     I = trapcomp(fn, a, b, N)
+#     while err > tol and N < nmax:
+#         N *= 2
+#         I2N = trapcomp(fn, a, b, N)
+#         err = abs(I - I2N)/3
+#         I = I2N
+#     return I, N
+
+# def simpcomp(fn, a, b, n):
+#     h = (b-a)/(2*n)
+#     xnodi = np.arange(a, b+h, h)
+#     f = fn(xnodi)
+#     I = h/3 * (f[0] + 4*np.sum(f[1:2*n:2]) + 2*np.sum(f[1:n]) + f[2*n])
+#     return I
+
+# def simptoll(fn, a, b, tol):
+#     nmax = 2048
+#     err = 1
+#     N = 1
+#     I = simpcomp(fn, a, b, N)
+#     while N < nmax and err > tol:
+#         N *= 2
+#         I2N = simpcomp(fn, a, b, N)
+#         err = abs(I - I2N)/15
+#         I = I2N
+#     return I, N
+
+
+
+
